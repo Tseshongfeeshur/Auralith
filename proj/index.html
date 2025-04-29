@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 样式 -->
+    <link rel="stylesheet" href="./styles/global.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/index.css" type="text/css" />
+    <title>库 | 绫砚</title>
+</head>
+
+<body>
+    <s-page theme="auto">
+        <s-appbar>
+            <s-icon-button slot="navigation">
+                <s-icon name="menu"></s-icon>
+            </s-icon-button>
+            <div id="app-title" slot="headline">库</div>
+            <s-search id="search-box" slot="search" placeholder="搜索已有游戏">
+                <s-icon name="search" slot="start"></s-icon>
+                <s-icon-button slot="end">
+                    <s-icon id="search-close-button" name="close"></s-icon>
+                </s-icon-button>
+            </s-search>
+            <s-icon-button id="search-button" slot="action">
+                <s-icon name="search"></s-icon>
+            </s-icon-button>
+        </s-appbar>
+        <div id="container">
+        </div>
+        <s-fab id="add-fab">
+            <s-icon name="add" slot="start"></s-icon>
+            创建新游戏
+        </s-fab>
+        <s-dialog id="add-dialog">
+            <div slot="headline">创建新游戏</div>
+            <div slot="text">
+                <s-text-field class="text-input" id="add-input-name" label="游戏标题">
+                    <s-icon slot="start">
+                        <svg viewBox="0 -960 960 960">
+                            <path d="M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z"></path>
+                        </svg>
+                    </s-icon>
+                </s-text-field>
+                <s-text-field class="text-input" id="add-input-id" label="游戏唯一标识">
+                    <s-icon slot="start">
+                        <svg viewBox="0 -960 960 960">
+                            <path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"></path>
+                        </svg>
+                    </s-icon>
+                </s-text-field>
+            </div>
+            <s-button slot="action" type="text">取消</s-button>
+            <s-button id="add-submit-button" slot="action" type="filled-tonal">创建</s-button>
+        </s-dialog>
+    </s-page>
+    <!-- 引入外部组件库（等效于 ./scripts/sober@1.1.1.min.js） -->
+    <script src="https://unpkg.com/sober@1.1.1/dist/sober.min.js"></script>
+    <!-- 引入数据库操作库（等效于 ./scripts/idb@8.0.2.min.js）  -->
+    <script src="https://cdn.jsdelivr.net/npm/idb@8.0.2/build/umd.min.js"></script>
+    <!-- 页面脚本 -->
+    <script src="./scripts/index.js"></script>
+</body>
+
+</html>
