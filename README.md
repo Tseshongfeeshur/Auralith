@@ -1,12 +1,29 @@
-# React + Vite
+# 绫砚
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[English README »](./README.en-US.md)
 
-Currently, two official plugins are available:
+「每一声低语，皆可化为传奇。」
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 简介
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**绫砚**是一款专为创作文字冒险游戏而生的平台，致力于以优雅而高效的方式，释放每一位创作者的想象力。
+
+它让故事编织者、叙事爱好者与梦想家们，无需繁琐编码，便能轻松构建丰富多变的世界，交织出分支叙事与难忘旅程。
+
+绫砚拥有简洁直观的界面、灵活开放的结构，始终以创作自由为核心，助你将每一个灵感的低语，打磨成鲜活的传奇。
+
+无论是轻描淡写的一段短篇，还是纵横恢弘的一部史诗，绫砚都将成为你无声想象的桥梁，让故事自然而然地流淌而出。
+
+---
+
+## 开发状态
+
+项目仍在积极开发中，敬请期待！
+
+---
+
+## 许可协议
+
+本项目采用 [MIT License](./LICENSE) 发布。
