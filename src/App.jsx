@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Routes, Route, useNavigate, useRef } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 function Library() {
@@ -18,19 +18,37 @@ function About() {
 }
 
 function App() {
+  // 路由
   const navigate = useNavigate();
+  
+  // 加载语言
   const { t } = useTranslation();
+  
+  // 阻断后退行为
+  window.addEventListener('beforeunload', function(event) {
+    event.preventDefault();
+    event.returnValue = ''; // 部分浏览器需要这个返回值
+  });
+  
+  // 获取元素
+  const menuRef = useRef();
+  
+  // 切换抽屉状态
+  function switchDrawer() {
+    menuRef.current.toggle();
+  }
+  
   return (
     <s-page theme="auto">
       <s-appbar>
-        <s-icon-button slot="navigation">
+        <s-icon-button onClick={switchDrawer}slot="navigation">
           <s-icon name="menu"></s-icon>
         </s-icon-button>
         <div slot="headline"></div>
       </s-appbar>
       <s-drawer>
         <div slot="start">
-          <s-menu>
+          <s-menu ref={menuRef}>
             <s-menu-item checked="true">
               <s-icon slot="start" name="home"></s-icon>
               {t('pages.library')}
