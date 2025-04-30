@@ -32,11 +32,11 @@ function App() {
   });
   
   // 获取元素
-  const menuRef = useRef();
+  const drawerRef = useRef();
   
   // 切换抽屉状态
   function switchDrawer() {
-    menuRef.current.toggle();
+    drawerRef.current.toggle();
   }
   
   return (
@@ -47,9 +47,9 @@ function App() {
         </s-icon-button>
         <div slot="headline"></div>
       </s-appbar>
-      <s-drawer>
+      <s-drawer ref={drawerRef}>
         <div slot="start">
-          <s-menu ref={menuRef}>
+          <s-menu>
             <s-menu-item checked="true">
               <s-icon slot="start" name="home"></s-icon>
               {t('pages.library')}
