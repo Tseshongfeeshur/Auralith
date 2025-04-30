@@ -3,6 +3,9 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 function Library() {
+  // 加载语言
+  const { t } = useTranslation();
+  
   // 获取元素
   const addDialogRef = useRef();
   const addGameTitle = useRef();
@@ -32,26 +35,28 @@ function Library() {
     const newGameId = addGameId.current.value;
     if (newGameTitle && newGameId) {
       sober.Snackbar.builder({
-        text: `游戏 ${newGameTitle} [${newGameId}] 创建成功`,
+        text: t('library.add-dialog.snackbar.game-added-successful', {
+          title: addGameTitle,
+          id: addGameId
+        }),
         type: 'success',
-        action: '好'
+        action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
       addGameTitle.current.error = true;
       sober.Snackbar.builder({
-        text: '请输入游戏标题',
+        text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
-        action: '好'
+        action: t('library.add-dialog.snackbar.ok')
       });
     } else {
       addGameTitle.current.error = true;
       sober.Snackbar.builder({
-        text: '请注定游戏唯一标识符',
+        text: t('library.add-dialog.snackbar.fix-empty-id'),
         type: 'error',
-        action: '好'
+        action: t('library.add-dialog.snackbar.ok')
       });
     }
-    
   }
   
   return (
@@ -79,17 +84,23 @@ function Library() {
           </s-text-field>
         </div>
         <s-button slot="action" type="text">{t('library.add-dialog.cancel')}</s-button>
-        <s-button onClick={addSubmit} slot="action" type="filled-tonal">{t('library.add-dialog.ok')}</s-button>
+        <s-button onClick={addSubmit} slot="action" type="filled-tonal">{t('library.add-dialog.add-it')}</s-button>
       </s-dialog>
     </div>
   );
 }
 
 function Editor() {
+  // 加载语言
+  const { t } = useTranslation();
+  
   return null;
 }
 
 function About() {
+  // 加载语言
+  const { t } = useTranslation();
+  
   return null;
 }
 

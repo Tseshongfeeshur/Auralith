@@ -11,7 +11,13 @@
       "game-title": "游戏标题",
       "game-id": "游戏唯一标识",
       "cancel": "取消",
-      "ok": "创建"
+      "add-it": "创建",
+      "snackbar": {
+        "game-added-successful": "游戏 {{title}} [{{id}}] 创建成功",
+        "fix-empty-title": "请输入游戏标题",
+        "fix-empty-id": "请指定游戏唯一标识",
+        "ok": "好"
+      }
     }
   }
 }
