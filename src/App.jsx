@@ -26,8 +26,6 @@ function Library() {
     }
     // 随机 id 填充至输入框
     addGameIdRef.current.value = getId();
-    addGameTitleRef.current.error = false;
-    addGameIdRef.current.error = false;
     addGameTitleRef.current.value = '';
     addDialogRef.current.showed = true;
   }
@@ -45,14 +43,13 @@ function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
-      addGameTitleRef.current.error = true;
+      preventDefault();//这里对吗
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
         action: t('library.add-dialog.snackbar.ok')
       });
     } else {
-      addGameTitleRef.current.error = true;
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-id'),
         type: 'error',
