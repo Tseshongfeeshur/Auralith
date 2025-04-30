@@ -9,7 +9,7 @@
 }
 
 /* 取消默认间距 */
-html, body {
+html, body, #root {
     padding: 0;
     margin: 0;
     width: 100%;
