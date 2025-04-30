@@ -30,7 +30,7 @@ function Library() {
     addDialogRef.current.showed = true;
   }
   // 创建游戏
-  function addSumbit() {
+  function addSubmit() {
     const newGameTitle = addGameTitle.current.value;
     const newGameId = addGameId.current.value;
     if (newGameTitle && newGameId) {
