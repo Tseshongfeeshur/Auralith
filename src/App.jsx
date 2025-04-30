@@ -26,13 +26,15 @@ function Library() {
     }
     // 随机 id 填充至输入框
     addGameIdRef.current.value = getId();
+    addGameTitleRef.current.error = false;
+    addGameIdRef.current.error = false;
     addGameTitleRef.current.value = '';
     addDialogRef.current.showed = true;
   }
   // 创建游戏
   function addSubmit() {
-    const newGameTitle = addGameTitle.current.value;
-    const newGameId = addGameId.current.value;
+    const newGameTitle = addGameTitleRef.current.value;
+    const newGameId = addGameIdRef.current.value;
     if (newGameTitle && newGameId) {
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.game-added-successful', {
@@ -43,14 +45,14 @@ function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
-      addGameTitle.current.error = true;
+      addGameTitleRef.current.error = true;
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
         action: t('library.add-dialog.snackbar.ok')
       });
     } else {
-      addGameTitle.current.error = true;
+      addGameTitleRef.current.error = true;
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-id'),
         type: 'error',
