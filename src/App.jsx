@@ -25,8 +25,8 @@ function Library() {
       return `${year}${month}${day}-${hour}${minute}${second}-${random}`;
     }
     // 随机 id 填充至输入框
-    addGameId.current.value = getId();
-    addGameTitle.current.value = '';
+    addGameIdRef.current.value = getId();
+    addGameTitleRef.current.value = '';
     addDialogRef.current.showed = true;
   }
   // 创建游戏
@@ -36,8 +36,8 @@ function Library() {
     if (newGameTitle && newGameId) {
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.game-added-successful', {
-          title: addGameTitle,
-          id: addGameId
+          title: newGameTitle,
+          id: newGameId
         }),
         type: 'success',
         action: t('library.add-dialog.snackbar.ok')
@@ -68,14 +68,14 @@ function Library() {
       <s-dialog ref={addDialogRef}>
         <div slot="headline">{t('library.add-game')}</div>
         <div slot="text">
-          <s-text-field className="text-input" label={t('library.add-dialog.game-title')}>
+          <s-text-field ref={addGameTitleRef} className="text-input" label={t('library.add-dialog.game-title')}>
             <s-icon slot="start">
               <svg viewBox="0 -960 960 960">
                 <path d="M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z"></path>
               </svg>
             </s-icon>
           </s-text-field>
-          <s-text-field className="text-input" label={t('library.add-dialog.game-id')}>
+          <s-text-field ref={addGameIdRef} className="text-input" label={t('library.add-dialog.game-id')}>
             <s-icon slot="start">
               <svg viewBox="0 -960 960 960">
                 <path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"></path>
