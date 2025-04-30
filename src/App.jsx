@@ -8,8 +8,8 @@ function Library() {
   
   // 获取元素
   const addDialogRef = useRef();
-  const addGameTitle = useRef();
-  const addGameId = useRef();
+  const addGameTitleRef = useRef();
+  const addGameIdRef = useRef();
   // 打开游戏创建对话框
   function showAddDialog() {
     // 生成随机 id（年月日-时分秒-两位随机数）
