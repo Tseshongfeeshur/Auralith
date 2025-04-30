@@ -159,13 +159,13 @@ function App() {
               </s-icon>
               {t('pages.about')}
             </s-menu-item>
-            <Routes>
-              <Route path="/" element={<Library />} />
-              <Route path="/editor" element={<Editor />} />
-              <Route path="/about" element={<About />} />
-            </Routes>
           </s-menu>
         </div>
+        <Routes>
+          <Route path="/" element={<Library />} />
+          <Route path="/editor" element={<Editor />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
       </s-drawer>
     </s-page>
   );
