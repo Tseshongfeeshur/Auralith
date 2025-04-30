@@ -13,6 +13,10 @@ function Editor() {
   return null;
 }
 
+function About() {
+  return null;
+}
+
 function App() {
   const navigate = useNavigate();
   const { t } = useTranslation();
