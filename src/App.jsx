@@ -5,10 +5,53 @@ import { useTranslation } from 'react-i18next';
 function Library() {
   // 获取元素
   const addDialogRef = useRef();
-  
+  const addGameTitle = useRef();
+  const addGameId = useRef();
   // 打开游戏创建对话框
   function showAddDialog() {
+    // 生成随机 id（年月日-时分秒-两位随机数）
+    function getId() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
+      const random = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+      return `${year}${month}${day}-${hour}${minute}${second}-${random}`;
+    }
+    // 随机 id 填充至输入框
+    addGameId.current.value = getId();
+    addGameTitle.current.value = '';
     addDialogRef.current.showed = true;
+  }
+  // 创建游戏
+  function addSumbit() {
+    const newGameTitle = addGameTitle.current.value;
+    const newGameId = addGameId.current.value;
+    if (newGameTitle && newGameId) {
+      sober.Snackbar.builder({
+        text: `游戏 ${newGameTitle} [${newGameId}] 创建成功`,
+        type: 'success',
+        action: '好'
+      });
+    } else if (!newGameTitle) {
+      addGameTitle.current.error = true;
+      sober.Snackbar.builder({
+        text: '请输入游戏标题',
+        type: 'error',
+        action: '好'
+      });
+    } else {
+      addGameTitle.current.error = true;
+      sober.Snackbar.builder({
+        text: '请注定游戏唯一标识符',
+        type: 'error',
+        action: '好'
+      });
+    }
+    
   }
   
   return (
@@ -36,7 +79,7 @@ function Library() {
           </s-text-field>
         </div>
         <s-button slot="action" type="text">{t('library.add-dialog.cancel')}</s-button>
-        <s-button slot="action" type="filled-tonal">{t('library.add-dialog.ok')}</s-button>
+        <s-button onClick={addSubmit} slot="action" type="filled-tonal">{t('library.add-dialog.ok')}</s-button>
       </s-dialog>
     </div>
   );
@@ -65,7 +108,6 @@ function App() {
   
   // 获取元素
   const drawerRef = useRef();
-  
   // 切换抽屉状态
   function switchDrawer() {
     drawerRef.current.toggle();
