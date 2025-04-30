@@ -7,8 +7,8 @@ import './index.css';
 import 'sober';
 import './i18n';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+ReactDOM.createRoot(document.body).render(
+    <React.StrictMode>
         <BrowserRouter>
             <App />
         </BrowserRouter>
