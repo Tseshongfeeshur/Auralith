@@ -9,7 +9,7 @@
 }
 
 /* 取消默认间距 */
-hwtml, bodwy, #roowt {
+html, body {
     padding: 0;
     margin: 0;
     width: 100%;

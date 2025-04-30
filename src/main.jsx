@@ -5,7 +5,7 @@ import App from './App';
 import 'sober';
 import './i18n';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.body).render(
   <React.StrictMode>
         <BrowserRouter>
             <App />
