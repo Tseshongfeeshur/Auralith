@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import './App.css'
 
 function Library() {
   // 加载语言
