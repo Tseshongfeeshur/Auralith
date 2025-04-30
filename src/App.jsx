@@ -58,3 +58,5 @@ function App() {
     </s-page>
   );
 }
+
+export default App;
