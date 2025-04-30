@@ -1,8 +1,17 @@
 {
-    "Auralith": "绫砚",
-    "pages": {
-        "library": "库",
-        "editor": "编辑器",
-        "about": "关于"
+  "Auralith": "绫砚",
+  "pages": {
+    "library": "库",
+    "editor": "编辑器",
+    "about": "关于"
+  },
+  "library": {
+    "add-game": "创建新游戏",
+    "add-dialog": {
+      "game-title": "游戏标题",
+      "game-id": "游戏唯一标识",
+      "cancel": "取消",
+      "ok": "创建"
     }
+  }
 }

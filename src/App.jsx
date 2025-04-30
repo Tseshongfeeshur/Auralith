@@ -3,9 +3,41 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 function Library() {
+  // 获取元素
+  const addDialogRef = useRef();
+  
+  // 打开游戏创建对话框
+  function showAddDialog() {
+    addDialogRef.current.showed = true;
+  }
+  
   return (
     <div>
-      
+      <s-fab onClick={showAddDialog}>
+        <s-icon name="add" slot="start"></s-icon>
+        {t('library.add-game')}
+      </s-fab>
+      <s-dialog ref={addDialogRef}>
+        <div slot="headline">{t('library.add-game')}</div>
+        <div slot="text">
+          <s-text-field className="text-input" label={t('library.add-dialog.game-title')}>
+            <s-icon slot="start">
+              <svg viewBox="0 -960 960 960">
+                <path d="M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z"></path>
+              </svg>
+            </s-icon>
+          </s-text-field>
+          <s-text-field className="text-input" label={t('library.add-dialog.game-id')}>
+            <s-icon slot="start">
+              <svg viewBox="0 -960 960 960">
+                <path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"></path>
+              </svg>
+            </s-icon>
+          </s-text-field>
+        </div>
+        <s-button slot="action" type="text">{t('library.add-dialog.cancel')}</s-button>
+        <s-button slot="action" type="filled-tonal">{t('library.add-dialog.ok')}</s-button>
+      </s-dialog>
     </div>
   );
 }
@@ -50,22 +82,26 @@ function App() {
       <s-drawer ref={drawerRef}>
         <div slot="start">
           <s-menu>
-            <s-menu-item checked="true">
-              <s-icon slot="start" name="home"></s-icon>
+            <s-menu-item onClick={() => navigate('/library')} checked="true">
+              <s-icon slot="start">
+                <svg viewBox="0 -960 960 960">
+                  <path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"></path>
+                </svg>
+              </s-icon>
               {t('pages.library')}
             </s-menu-item>
-            <s-menu-item>
+            <s-menu-item onClick={() => navigate('/editor')}>
               <s-icon slot="start">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                  <path d="M640-640v-120H320v120h-80v-200h480v200h-80Zm-480 80h640-640Zm560 100q17 0 28.5-11.5T760-500q0-17-11.5-28.5T720-540q-17 0-28.5 11.5T680-500q0 17 11.5 28.5T720-460Zm-80 260v-160H320v160h320Zm80 80H240v-160H80v-240q0-51 35-85.5t85-34.5h560q51 0 85.5 34.5T880-520v240H720v160Zm80-240v-160q0-17-11.5-28.5T760-560H200q-17 0-28.5 11.5T160-520v160h80v-80h480v80h80Z"></path>
+                <svg viewBox="0 -960 960 960">
+                  <path d="M560-80v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q8 9 12.5 20t4.5 22q0 11-4 22.5T903-300L683-80H560Zm300-263-37-37 37 37ZM620-140h38l121-122-18-19-19-18-122 121v38ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v120h-80v-80H520v-200H240v640h240v80H240Zm280-400Zm241 199-19-18 37 37-18-19Z"></path>
                 </svg>
               </s-icon>
               {t('pages.editor')}
             </s-menu-item>
-            <s-menu-item>
+            <s-menu-item onClick={() => navigate('/about')}>
               <s-icon slot="start">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-                  <path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z"></path>
+                <svg viewBox="0 -960 960 960">
+                  <path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"></path>
                 </svg>
               </s-icon>
               {t('pages.about')}

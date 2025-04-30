@@ -1,8 +1,8 @@
 {
-    "Auralith": "Auralith",
-    "pages": {
-        "library": "Library",
-        "editor": "Editor",
-        "about": "About"
-    }
+  "Auralith": "Auralith",
+  "pages": {
+    "library": "Library",
+    "editor": "Editor",
+    "about": "About"
+  }
 }
