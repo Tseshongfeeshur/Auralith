@@ -130,6 +130,7 @@ function App() {
       <s-drawer ref={drawerRef}>
         <div slot="start">
           <s-menu>
+            <div slot="label">{t('pages.navigation')}</div>
             <s-menu-item onClick={() => navigate('/')} checked="true">
               <s-icon slot="start">
                 <svg viewBox="0 -960 960 960">
