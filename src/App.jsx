@@ -35,7 +35,7 @@ function Library() {
     const newGameTitle = addGameTitleRef.current.value;
     const newGameId = addGameIdRef.current.value;
     if (newGameTitle && newGameId) {
-      sober.Snackbar.builder({
+      Snackbar.builder({
         text: t('library.add-dialog.snackbar.game-added-successful', {
           title: newGameTitle,
           id: newGameId
@@ -44,13 +44,12 @@ function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
-      sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
         action: t('library.add-dialog.snackbar.ok')
       });
     } else {
-      sober.Snackbar.builder({
+      Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-id'),
         type: 'error',
         action: t('library.add-dialog.snackbar.ok')
