@@ -7,7 +7,7 @@ export default function Editor() {
   const { t } = useTranslation();
   
   // 设置标题
-  const { setTitle } = useAppTitle();
+  //const { setTitle } = useAppTitle();
   useEffect(() => {
     setTitle(t('pages.editor'));
   }, []);
