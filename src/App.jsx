@@ -43,7 +43,8 @@ function Library() {
           id: newGameId
         }),
         type: 'success',
-        action: t('library.add-dialog.snackbar.ok')
+        action: t('library.add-dialog.snackbar.ok'),
+        duration: 9999999999
       });
     } else if (!newGameTitle) {
       Snackbar.builder({
