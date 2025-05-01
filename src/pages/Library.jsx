@@ -1,0 +1,98 @@
+import { useRef, useEffect } from 'react';
+import { useAppTitle } from '../TitleContext';
+import { useTranslation } from 'react-i18next';
+
+import { Snackbar } from 'sober';
+
+
+export default function Library() {
+  // 加载语言
+  const { t } = useTranslation();
+  
+  // 设置标题
+  const { setTitle } = useAppTitle();
+  useEffect(() => {
+    setTitle(t('pages.library'));
+  }, []);
+  
+  // 获取元素
+  const addDialogRef = useRef();
+  const addGameTitleRef = useRef();
+  const addGameIdRef = useRef();
+  // 打开游戏创建对话框
+  function showAddDialog() {
+    // 生成随机 id（年月日-时分秒-两位随机数）
+    function getId() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
+      const random = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+      return `${year}${month}${day}-${hour}${minute}${second}-${random}`;
+    }
+    // 随机 id 填充至输入框
+    addGameIdRef.current.value = getId();
+    addGameTitleRef.current.value = '';
+    addDialogRef.current.showed = true;
+  }
+  // 创建游戏
+  function addSubmit() {
+    const newGameTitle = addGameTitleRef.current.value;
+    const newGameId = addGameIdRef.current.value;
+    if (newGameTitle && newGameId) {
+      Snackbar.builder({
+        text: t('library.add-dialog.snackbar.game-added-successful', {
+          title: newGameTitle,
+          id: newGameId
+        }),
+        type: 'success',
+        action: t('library.add-dialog.snackbar.ok')
+      });
+    } else if (!newGameTitle) {
+      Snackbar.builder({
+        text: t('library.add-dialog.snackbar.fix-empty-title'),
+        type: 'error',
+        action: t('library.add-dialog.snackbar.ok')
+      });
+    } else {
+      Snackbar.builder({
+        text: t('library.add-dialog.snackbar.fix-empty-id'),
+        type: 'error',
+        action: t('library.add-dialog.snackbar.ok')
+      });
+    }
+  }
+  
+  return (
+    <div>
+      <s-fab onClick={showAddDialog}>
+        <s-icon name="add" slot="start"></s-icon>
+        {t('library.add-game')}
+      </s-fab>
+      <s-dialog ref={addDialogRef}>
+        <div slot="headline">{t('library.add-game')}</div>
+        <div slot="text">
+          <s-text-field ref={addGameTitleRef} className="text-input" label={t('library.add-dialog.game-title')}>
+            <s-icon slot="start">
+              <svg viewBox="0 -960 960 960">
+                <path d="M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z"></path>
+              </svg>
+            </s-icon>
+          </s-text-field>
+          <s-text-field ref={addGameIdRef} className="text-input" label={t('library.add-dialog.game-id')}>
+            <s-icon slot="start">
+              <svg viewBox="0 -960 960 960">
+                <path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"></path>
+              </svg>
+            </s-icon>
+          </s-text-field>
+        </div>
+        <s-button slot="action" type="text">{t('library.add-dialog.cancel')}</s-button>
+        <s-button onClick={addSubmit} slot="action" type="filled-tonal">{t('library.add-dialog.add-it')}</s-button>
+      </s-dialog>
+    </div>
+  );
+}
