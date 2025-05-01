@@ -2,9 +2,9 @@ import { useRef } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppTitle } from './TitleContext.jsx';
-import './pages/Library';
-import './pages/Editor';
-import './pages/About';
+import Library from './pages/Library';
+import Editor from './pages/Editor';
+import About from './pages/About';
 import './App.css';
 
 export default function App() {
