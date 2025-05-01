@@ -44,7 +44,6 @@ function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
-      preventDefault();//这里对吗
       sober.Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
