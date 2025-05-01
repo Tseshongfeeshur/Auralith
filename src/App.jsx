@@ -44,6 +44,7 @@ function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     } else if (!newGameTitle) {
+      Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
         type: 'error',
         action: t('library.add-dialog.snackbar.ok')
