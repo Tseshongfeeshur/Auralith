@@ -16,16 +16,6 @@ html, body, #root {
     height: 100%;
 }
 
-#root {
-    display: flex;
-    flex-direction: column;
-}
-
-s-drawer {
-    flex-grow: 1;
-    overflow: auto;
-}
-
 s-text-field.text-input {
     display: grid;
     width: auto;

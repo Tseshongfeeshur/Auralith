@@ -127,12 +127,6 @@ function App() {
   
   return (
     <s-page theme="auto">
-              <s-appbar>
-          <s-icon-button onClick={switchDrawer}slot="navigation">
-            <s-icon name="menu"></s-icon>
-          </s-icon-button>
-          <div slot="headline"></div>
-        </s-appbar>
       <s-drawer ref={drawerRef}>
         <div slot="start">
           <s-menu>
@@ -163,6 +157,12 @@ function App() {
             </s-menu-item>
           </s-menu>
         </div>
+        <s-appbar>
+          <s-icon-button onClick={switchDrawer}slot="navigation">
+            <s-icon name="menu"></s-icon>
+          </s-icon-button>
+          <div slot="headline"></div>
+        </s-appbar>
         <Routes>
           <Route path="/" element={<Library />} />
           <Route path="/editor" element={<Editor />} />
