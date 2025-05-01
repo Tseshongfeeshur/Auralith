@@ -2,6 +2,8 @@ import { useRef, useEffect } from 'react';
 import { useAppTitle } from '../TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
+import { useEffect } from 'react';
+import { useAppTitle } from '../TitleContext';
 
 export default function Library() {
   // 加载语言
