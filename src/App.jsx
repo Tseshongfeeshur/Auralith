@@ -14,12 +14,6 @@ export default function App() {
   // 加载语言
   const { t } = useTranslation();
   
-  // 阻断后退行为
-  window.addEventListener('beforeunload', function(event) {
-    event.preventDefault();
-    event.returnValue = ''; // 部分浏览器需要这个返回值
-  });
-  
   // 获取元素
   const drawerRef = useRef();
   // 切换抽屉状态

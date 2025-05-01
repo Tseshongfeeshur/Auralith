@@ -8,7 +8,7 @@ export function TitleProvider({ children }) {
   const { t } = useTranslation();
   
   const [title, setTitle] = useState('');
-  //document.title = `${title} | ${t(Auralith)}`;
+  document.title = `${title} | ${t(Auralith)}`;
   
   return (
     <TitleContext.Provider value={{ title, setTitle }}>
