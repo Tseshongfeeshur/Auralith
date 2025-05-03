@@ -13,15 +13,11 @@ function LanguagePicker() {
     zhClassical: '文言'
   };
   
-  function handleChange(lang) {
-    i18n.changeLanguage(lang); // 直接热切换语言
-  };
-  
 return (
   <s-picker label={t('settings.language')}>
     {
       Object.entries(languages).map(([lang, label]) => (
-        <s-picker-item key={lang} value={lang} checked={lang == i18n.language} onClick={() => changeLang(lang)}>
+        <s-picker-item key={lang} value={lang} checked={lang == i18n.language} onClick={() => i18n.changeLanguage(lang)}>
           {label}
         </s-picker-item>
       ))
