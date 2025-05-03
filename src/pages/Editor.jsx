@@ -11,5 +11,5 @@ export default function Editor() {
   useEffect(() => {
     setTitle(t('pages.editor'));
   }, []);
-
+  
 }
