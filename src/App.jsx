@@ -11,6 +11,7 @@ import './App.css';
 function DrawerMenu() {
   // 加载语言
   const { t } = useTranslation();
+  
   return (
     <s-menu>
       <div slot="label">{t('navigation')}</div>
@@ -55,9 +56,7 @@ function DrawerMenu() {
 }
 
 export default function App() {
-  // 路由
-  const navigate = useNavigate();
-  
+
   // 加载语言
   const { t } = useTranslation();
   
