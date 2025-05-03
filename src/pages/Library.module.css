@@ -1,5 +1,5 @@
 .fab {
-  display: fixed;
+  position: fixed;
   bottom: 4em;
   right: 3em;
 }
