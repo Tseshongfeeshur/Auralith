@@ -45,7 +45,8 @@ function DrawerMenu({ drawerRef }) {
           </s-menu-item>
         )}
       </NavLink>
-      <s-divider></s-divider>
+    </s-menu>
+    <s-menu>
       <div slot="label">{t('options')}</div>
       <NavLink to="/settings" onClick={closeDrawer}>
         {({ isActive, isPending }) => (
