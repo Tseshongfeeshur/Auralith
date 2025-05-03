@@ -106,6 +106,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Library />} />
           <Route path="/editor" element={<Editor />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </s-drawer>
