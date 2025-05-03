@@ -7,6 +7,11 @@ import i18n from '../i18n';
 function LanguagePicker() {
   // 加载语言
   const { t } = useTranslation();
+  const languageNames = {
+    en: 'English',
+    zh: '中文',
+    zhClassical: '文言'
+  };
   
   const handleChange = (e) => {
     const newLang = e.target.value;
@@ -29,12 +34,6 @@ function LanguagePicker() {
 export default function Editor() {
   // 加载语言
   const { t } = useTranslation();
-  const languages = i18n.options.supportedLngs.filter(l => l !== 'cimode');
-  const languageNames = {
-    en: 'English',
-    zh: '中文',
-    zhClassical: '文言'
-  };
   
   // 设置标题
   const { setTitle } = useAppTitle();
