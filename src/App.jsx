@@ -9,6 +9,9 @@ import About from './pages/About';
 import './App.css';
 
 function DrawerMenu() {
+  // 加载语言
+  const { t } = useTranslation();
+  
   <s-menu>
     <div slot="label">{t('navigation')}</div>
     <NavLink to="/">
