@@ -16,6 +16,11 @@ html, body, #root {
     height: 100%;
 }
 
+/* 链接 */
+a {
+    text-decoration: none;
+}
+
 /* 输入框 */
 s-text-field.text-input {
     display: grid;
