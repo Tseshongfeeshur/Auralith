@@ -12,9 +12,9 @@ function DrawerMenu({ drawerRef }) {
   // 加载语言
   const { t } = useTranslation();
   
-  // 打开抽屉
-  function showDrawer() {
-    drawerRef.current.show();
+  // 关闭抽屉
+  function closeDrawer() {
+    drawerRef.current.close();
   }
   
   return (
