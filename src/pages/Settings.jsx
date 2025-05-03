@@ -7,22 +7,26 @@ import i18n from '../i18n';
 function LanguagePicker() {
   // 加载语言
   const { t } = useTranslation();
-  const languageNames = {
+  const languages = {
     en: 'English',
     zh: '中文',
     zhClassical: '文言'
   };
   
-  function handleChange(event) {
-    const newLang = event.target.value;
-    console.log(newLang);
-    i18n.changeLanguage(newLang); // 直接热切换语言
+  function handleChange(lang) {
+    i18n.changeLanguage(lang); // 直接热切换语言
   };
-  console.log(i18n);
-  return (
-    <s-picker label={t('settings.language')}>
-
-    </s-picker>
+  
+return (
+  <s-picker label={t('settings.language')}>
+    {
+      Object.entries(languages).map(([lang, label]) => (
+        <s-picker-item key={lang} value={lang} checked={lang == i18n.language} onClick={() => changeLang(lang)}>
+          {label}
+        </s-picker-item>
+      ))
+    }
+  </s-picker>
   );
 }
 
