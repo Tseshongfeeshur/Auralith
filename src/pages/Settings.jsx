@@ -15,6 +15,7 @@ function LanguagePicker() {
   
   const handleChange = (e) => {
     const newLang = e.target.value;
+    console.log(newLang);
     i18n.changeLanguage(newLang); // 直接热切换语言
   };
   
