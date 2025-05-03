@@ -10,6 +10,7 @@ i18n.use(initReactI18next).init({
         zhClassical: { translation: zhClassical },
         en: { translation: en }
     },
+    supportedLngs: ['zh', 'zhClassical', 'en'],
     lng: 'zh',
     fallbackLng: 'en',
     interpolation: {
