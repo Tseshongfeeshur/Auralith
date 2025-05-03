@@ -8,14 +8,19 @@ import Editor from './pages/Editor';
 import About from './pages/About';
 import './App.css';
 
-function DrawerMenu() {
+function DrawerMenu({ drawerRef }) {
   // 加载语言
   const { t } = useTranslation();
+  
+  // 打开抽屉
+  function showDrawer() {
+    drawerRef.current.show();
+  }
   
   return (
     <s-menu>
       <div slot="label">{t('navigation')}</div>
-      <NavLink to="/">
+      <NavLink to="/" onClick={closeDrawer}>
         {({ isActive, isPending }) => (
           <s-menu-item checked={isActive ? "true" : "false"}>
             <s-icon slot="start">
@@ -27,7 +32,7 @@ function DrawerMenu() {
           </s-menu-item>
         )}
       </NavLink>
-      <NavLink to="/editor">
+      <NavLink to="/editor" onClick={closeDrawer}>
         {({ isActive, isPending }) => (
           <s-menu-item checked={isActive ? "true" : "false"}>
             <s-icon slot="start">
@@ -39,7 +44,7 @@ function DrawerMenu() {
           </s-menu-item>
         )}
       </NavLink>
-      <NavLink to="/about">
+      <NavLink to="/about" onClick={closeDrawer}>
         {({ isActive, isPending }) => (
           <s-menu-item checked={isActive ? "true" : "false"}>
             <s-icon slot="start">
@@ -62,9 +67,10 @@ export default function App() {
   
   // 获取元素
   const drawerRef = useRef();
-  // 切换抽屉状态
-  function switchDrawer() {
-    drawerRef.current.toggle();
+  
+  // 打开抽屉
+  function showDrawer() {
+    drawerRef.current.show();
   }
   
   // 获取标题
@@ -74,10 +80,10 @@ export default function App() {
     <s-page theme="auto">
       <s-drawer ref={drawerRef}>
         <div slot="start">
-          <DrawerMenu />
+          <DrawerMenu drawerRef={drawerRef} />
         </div>
         <s-appbar>
-          <s-icon-button onClick={switchDrawer}slot="navigation">
+          <s-icon-button onClick={showDrawer}slot="navigation">
             <s-icon name="menu"></s-icon>
           </s-icon-button>
           <div slot="headline">{title}</div>
