@@ -1,9 +1,11 @@
 {
   "Auralith": "绫砚",
-  "navigation": "导航",
+  "studio": "创作",
+  "options": "选项",
   "pages": {
     "library": "库",
     "editor": "编辑器",
+    "settings": "设置",
     "about": "关于"
   },
   "library": {
