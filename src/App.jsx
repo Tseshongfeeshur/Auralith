@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, use } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAppTitle } from './TitleContext.jsx';
