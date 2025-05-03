@@ -1,8 +1,29 @@
 {
   "Auralith": "Auralith",
+  "studio": "Studio",
+  "options": "Options",
   "pages": {
     "library": "Library",
     "editor": "Editor",
+    "settings": "Settings",
     "about": "About"
+  },
+  "library": {
+    "add-game": "New Game",
+    "add-dialog": {
+      "game-title": "Game Title",
+      "game-id": "Unique Game ID",
+      "cancel": "Cancel",
+      "add-it": "Create",
+      "snackbar": {
+        "game-added-successful": "Game '{{title}}' [{{id}}] created successfully.",
+        "fix-empty-title": "Please enter a game title.",
+        "fix-empty-id": "Please provide a unique game ID.",
+        "ok": "OK"
+      }
+    }
+  },
+  "settings": {
+    "language": "Language"
   }
 }

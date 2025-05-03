@@ -1,8 +1,29 @@
 {
   "Auralith": "绫砚",
+  "studio": "云庐",
+  "options": "灵枢",
   "pages": {
     "library": "墨龛轩",
     "editor": "云绫栈",
+    "settings": "灵犀斋",
     "about": "青圭章"
+  },
+  "library": {
+    "add-game": "开卷辟尘",
+    "add-dialog": {
+      "game-title": "飞白引",
+      "game-id": "符文",
+      "cancel": "云散",
+      "add-it": "落印",
+      "snackbar": {
+        "game-added-successful": "卷轴 {{title}} [{{id}}] 落印成绫",
+        "fix-empty-title": "请题写飞白印",
+        "fix-empty-id": "请铭刻符文",
+        "ok": "鉴"
+      }
+    }
+  },
+  "settings": {
+    "language": "九域言枢"
   }
 }
