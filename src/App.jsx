@@ -5,6 +5,7 @@ import { useAppTitle } from './TitleContext.jsx';
 import { NavLink } from "react-router"
 import Library from './pages/Library';
 import Editor from './pages/Editor';
+import Settings from './pages/Settings';
 import About from './pages/About';
 import './App.css';
 
