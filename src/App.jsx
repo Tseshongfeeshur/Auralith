@@ -19,6 +19,7 @@ function DrawerMenu({ drawerRef }) {
   }
   
   return (
+    <div>
     <s-menu>
       <div slot="label">{t('studio')}</div>
       <NavLink to="/" onClick={closeDrawer}>
@@ -73,6 +74,7 @@ function DrawerMenu({ drawerRef }) {
         )}
       </NavLink>
     </s-menu>
+    </div>
   )
 }
 
