@@ -7,7 +7,7 @@ import Library from './pages/Library';
 import Editor from './pages/Editor';
 import Settings from './pages/Settings';
 import About from './pages/About';
-import './App.css';
+import './global.css';
 
 function DrawerMenu({ drawerRef }) {
   // 加载语言

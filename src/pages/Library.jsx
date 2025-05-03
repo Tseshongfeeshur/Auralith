@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useAppTitle } from '../TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
+import styles from './Library.module.css';
 
 export default function Library() {
   // 加载语言
@@ -66,7 +67,7 @@ export default function Library() {
   
   return (
     <div>
-      <s-fab onClick={showAddDialog}>
+      <s-fab className={styles.fab} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}
       </s-fab>
