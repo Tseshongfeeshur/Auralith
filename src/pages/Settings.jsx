@@ -13,21 +13,15 @@ function LanguagePicker() {
     zhClassical: '文言'
   };
   
-  const handleChange = (e) => {
-    const newLang = e.target.value;
+  function handleChange(event) {
+    const newLang = event.target.value;
     console.log(newLang);
     i18n.changeLanguage(newLang); // 直接热切换语言
   };
-  
+  console.log(i18n);
   return (
-    <s-picker label={t('settings.language')} onChange={handleChange}>
-      {i18n.options.supportedLngs
-        .filter(lng => lng !== 'cimode')
-        .map(lng => (
-          <s-picker-item key={lng} value={lng}>
-            {languageNames[lng] || lng}
-          </s-picker-item>
-        ))}
+    <s-picker label={t('settings.language')}>
+
     </s-picker>
   );
 }
