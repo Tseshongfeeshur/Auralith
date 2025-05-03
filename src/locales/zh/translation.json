@@ -22,5 +22,8 @@
         "ok": "好"
       }
     }
+  },
+  "settings": {
+    "language": "语言"
   }
 }
