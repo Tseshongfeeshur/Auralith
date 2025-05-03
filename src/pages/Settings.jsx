@@ -17,7 +17,7 @@ return (
   <s-picker label={t('settings.language')}>
     {
       Object.entries(languages).map(([lang, label]) => (
-        <s-picker-item key={lang} value={lang} checked={lang == i18n.language} onClick={() => i18n.changeLanguage(lang)}>
+        <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => i18n.changeLanguage(lang)}>
           {label}
         </s-picker-item>
       ))
