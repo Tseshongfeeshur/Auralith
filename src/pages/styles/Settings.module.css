@@ -22,7 +22,6 @@
 }
 
 .picker {
-  font-size: 1rem;
   width: calc(100% - 2rem * 2);
   margin: 1rem 2rem 1.3rem 2rem;
 }
