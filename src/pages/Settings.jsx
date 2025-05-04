@@ -47,5 +47,6 @@ export default function Editor() {
   
   return (
     <LanguagePicker />
+    <s-divider className={styles.divider}></s-divider>
   );
 }
