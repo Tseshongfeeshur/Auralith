@@ -2,24 +2,28 @@ import { useRef, useEffect, useState } from 'react';
 import { useAppTitle } from '../TitleContext';
 import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
+import styles from './styles/Settings.module.css'
 
 // 语言选择器
 function LanguagePicker() {
   // 加载语言
   const { t } = useTranslation();
+  // 可用语言
   const languages = {
     en: 'English',
     zh: '中文',
     zhClassical: '文言'
   };
   
+  // 改变语言
   function changeLang(lang) {
+    // 持久化
     localStorage.setItem('lang', lang);
     i18n.changeLanguage(lang);
   }
   
 return (
-  <s-picker label={t('settings.language')}>
+  <s-picker className={styles.item} label={t('settings.language')}>
     {
       Object.entries(languages).map(([lang, label]) => (
         <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => changeLang(lang)}>
