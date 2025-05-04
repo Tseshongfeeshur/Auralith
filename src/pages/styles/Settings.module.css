@@ -1,8 +1,4 @@
-.divider {
-  margin: 2em 0;
-}
-
 .item {
   width: calc(100% - 3em * 2);
-  margin: 2em 3em 1em 3em;
+  margin: 1em 3em 2em 3em;
 }
