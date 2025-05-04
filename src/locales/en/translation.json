@@ -24,6 +24,7 @@
     }
   },
   "settings": {
+    "professional-mode": "Professional mode",
     "language": "Language"
   }
 }

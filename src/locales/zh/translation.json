@@ -24,6 +24,7 @@
     }
   },
   "settings": {
+    "professional-mode": "专业模式",
     "language": "语言"
   }
 }

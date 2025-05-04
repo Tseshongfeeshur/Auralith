@@ -4,6 +4,20 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../i18n';
 import styles from './styles/Settings.module.css'
 
+// 模式切换器
+function ModeSwitch() {
+  return (
+    <s-ripple className={styles.item}>
+      <span>
+        {t('settings.professional-mode')}
+      </span>
+      <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
+        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') === 'false')
+      }}></s-switch>
+    </s-ripple>
+  );
+}
+
 // 语言选择器
 function LanguagePicker() {
   // 加载语言
@@ -22,16 +36,16 @@ function LanguagePicker() {
     i18n.changeLanguage(lang);
   }
   
-return (
-  <s-picker className={styles.item} label={t('settings.language')}>
-    {
-      Object.entries(languages).map(([lang, label]) => (
-        <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => changeLang(lang)}>
-          {label}
-        </s-picker-item>
-      ))
-    }
-  </s-picker>
+  return (
+    <s-picker className={styles.item} label={t('settings.language')}>
+      {
+        Object.entries(languages).map(([lang, label]) => (
+          <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => changeLang(lang)}>
+            {label}
+          </s-picker-item>
+        ))
+      }
+    </s-picker>
   );
 }
 
@@ -46,7 +60,10 @@ export default function Editor() {
   }, []);
   
   return (
-    <LanguagePicker />
-    <s-divider className={styles.divider}></s-divider>
+    <div>
+      <ModeSwitch />
+      <s-divider className={styles.divider}></s-divider>
+      <LanguagePicker />
+    </div>
   );
 }
