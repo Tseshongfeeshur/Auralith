@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import { TitleProvider } from './TitleContext';
 import 'sober';
-import './i18n';
+import i18n from './i18n';
 
 function setLang() {
     const lang = localStorage.getItem('lang');
