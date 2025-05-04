@@ -3,7 +3,7 @@
 }
 
 .picker {
-  width: calc(100% - 2em * 2);
+  width: calc(100% - 2em * 2 - 1em);
   margin: 1em 2em 1.3em 2em;
 }
 
