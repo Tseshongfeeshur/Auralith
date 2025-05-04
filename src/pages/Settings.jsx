@@ -15,7 +15,7 @@ function ModeSwitch() {
         {t('settings.professional-mode')}
       </span>
       <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
-        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') === 'false')
+        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') != 'true')
       }}></s-switch>
     </s-ripple>
   );
