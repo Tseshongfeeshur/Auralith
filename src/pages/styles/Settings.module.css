@@ -1,4 +1,12 @@
+.divider {
+  margin: 1em 0;
+}
+
 .item {
-  width: calc(100% - 3em * 2);
-  margin: 1em 3em 2em 3em;
+  width: calc(100% - 2em * 2);
+  margin: 1em 2em 1.3em 2em;
+}
+
+.switchBox {
+  display: flex;
 }

@@ -10,12 +10,11 @@ function ModeSwitch() {
   const { t } = useTranslation();
   
   return (
-    <s-ripple className={styles.item}>
-      <span>
+    <s-ripple className={`${styles.item} ${styles.switchBox}`}>      <span>
         {t('settings.professional-mode')}
       </span>
       <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
-        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') != 'true')
+        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') != 'false')
       }}></s-switch>
     </s-ripple>
   );
@@ -65,7 +64,7 @@ export default function Editor() {
   return (
     <div>
       <ModeSwitch />
-      <s-divider></s-divider>
+      <s-divider className={styles.divider}></s-divider>
       <LanguagePicker />
     </div>
   );
