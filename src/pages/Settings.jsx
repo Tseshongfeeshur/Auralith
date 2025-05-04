@@ -39,7 +39,7 @@ function LanguagePicker() {
   }
   
   return (
-    <s-picker className={styles.item} label={t('settings.language')}>
+    <s-picker className={styles.picker} label={t('settings.language')}>
       {
         Object.entries(languages).map(([lang, label]) => (
           <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => changeLang(lang)}>
