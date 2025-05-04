@@ -10,7 +10,8 @@ function ModeSwitch() {
   const { t } = useTranslation();
   
   return (
-    <s-ripple className={`${styles.item} ${styles.switchBox}`}>      <span>
+    <s-ripple className={styles.switchBox}>
+      <span>
         {t('settings.professional-mode')}
       </span>
       <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
