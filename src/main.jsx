@@ -15,6 +15,8 @@ function setLang() {
     i18n.changeLanguage(lang);
 }
 
+setLang();
+
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <BrowserRouter>
