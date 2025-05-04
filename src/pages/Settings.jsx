@@ -13,11 +13,16 @@ function LanguagePicker() {
     zhClassical: '文言'
   };
   
+  function changeLang(lang) {
+    localStorage.setItem('lang', lang);
+    i18n.changeLanguage(lang);
+  }
+  
 return (
   <s-picker label={t('settings.language')}>
     {
       Object.entries(languages).map(([lang, label]) => (
-        <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => i18n.changeLanguage(lang)}>
+        <s-picker-item key={lang} value={lang} selected={lang == i18n.language} onClick={() => changeLang(lang)}>
           {label}
         </s-picker-item>
       ))
