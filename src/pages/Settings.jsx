@@ -6,6 +6,9 @@ import styles from './styles/Settings.module.css'
 
 // 模式切换器
 function ModeSwitch() {
+  // 加载语言
+  const { t } = useTranslation();
+  
   return (
     <s-ripple className={styles.item}>
       <span>
