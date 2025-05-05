@@ -1,7 +1,0 @@
-/* 故事创建浮动按钮 */
-s-fab#add-fab {
-    /* 绝对定位浮动 */
-    position: fixed;
-    bottom: 4em;
-    right: 2em;
-}

@@ -9,6 +9,7 @@
     "about": "关于"
   },
   "library": {
+    "search-for-your-games": "搜索您的游戏…",
     "add-game": "创建新游戏",
     "add-dialog": {
       "game-title": "游戏标题",
@@ -16,11 +17,13 @@
       "cancel": "取消",
       "add-it": "创建",
       "snackbar": {
-        "game-added-successful": "游戏 {{title}} [{{id}}] 创建成功",
+        "game-added-successful": "游戏 {{title}} （{{id}}） 创建成功",
+        "game-added-failed": "游戏创建失败：",
         "fix-empty-title": "请输入游戏标题",
         "fix-empty-id": "请指定游戏唯一标识",
         "ok": "好"
-      }
+      },
+      "1st-plot-desc": "您的故事，就此开始。",
     }
   },
   "settings": {

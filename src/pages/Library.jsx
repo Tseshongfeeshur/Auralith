@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useAppTitle } from '../lib/TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
+import { getAllGames, addGame } from '../lib/db.js'
 import styles from './styles/Library.module.css';
 
 export default function Library() {
@@ -38,18 +39,80 @@ export default function Library() {
     addDialogRef.current.showed = true;
   }
   // 创建游戏
-  function addSubmit() {
+  async function addSubmit() {
     const newGameTitle = addGameTitleRef.current.value;
     const newGameId = addGameIdRef.current.value;
     if (newGameTitle && newGameId) {
-      Snackbar.builder({
-        text: t('library.add-dialog.snackbar.game-added-successful', {
-          title: newGameTitle,
-          id: newGameId
-        }),
-        type: 'success',
-        action: t('library.add-dialog.snackbar.ok')
-      });
+      const newGameObj = {
+        "id": newGameId,
+        "page": {
+          "title": newGameTitle,
+          "html": {
+            "header": newGameTitle,
+            "footer": t('Auralith')
+          },
+          "style": "",
+          "script": ""
+        },
+        "plots": [
+        {
+          "coordinates": {
+            "x": 0,
+            "y": 0
+          },
+          "content": {
+            "desc": t('1st-plot-desc'),
+            "text": "",
+            "image": {
+              "src": "",
+              "alt": ""
+            },
+            "actions": [
+            {
+              "plotIndex": 0,
+              "text": ""
+            }]
+          },
+          "hooks": {
+            "html": {
+              "forText": {
+                "before": "",
+                "after": ""
+              },
+              "forImage": {
+                "before": "",
+                "after": ""
+              },
+              "forActions": {
+                "before": "",
+                "after": ""
+              }
+            },
+            "style": "",
+            "script": {
+              "afterEnter": "",
+              "beforeLeave": ""
+            }
+          }
+        }]
+      }
+      try {
+        await addGame(newGameObj);
+        Snackbar.builder({
+          text: t('library.add-dialog.snackbar.game-added-successful', {
+            title: newGameTitle,
+            id: newGameId
+          }),
+          type: 'success',
+          action: t('library.add-dialog.snackbar.ok')
+        });
+      } catch (error) {
+        Snackbar.builder({
+          text: `${t('library.add-dialog.snackbar.game-added-failed')}${error.message}`,
+          type: 'error',
+          action: t('library.add-dialog.snackbar.ok')
+        });
+      }
     } else if (!newGameTitle) {
       Snackbar.builder({
         text: t('library.add-dialog.snackbar.fix-empty-title'),
@@ -66,7 +129,17 @@ export default function Library() {
   }
   
   return (
-    <div>
+    <div className={styles.container}>
+      <s-search placeholder={t('library.search-for-your-games')} onInput={}>
+        <s-icon name="search" slot="start"></s-icon>
+        <s-icon-button slot="end">
+          <s-icon>
+            <svg viewBox="0 -960 960 960">
+              <path d="M120-280v-80h560v80H120Zm80-160v-80h560v80H200Zm80-160v-80h560v80H280Z"></path>
+            </svg>
+          </s-icon>
+        </s-icon-button>
+      </s-search>
       <s-fab className={styles.fab} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}

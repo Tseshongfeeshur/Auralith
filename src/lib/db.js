@@ -23,6 +23,12 @@ export async function getGame(id) {
   return game;
 }
 
+export async function getAllGames() {
+  const db = await dbPromise;
+  const allGames = await db.getAll('games');
+  return allGames;
+}
+
 export async function updateGame(data) {
   const db = await dbPromise;
   await db.put('games', data);
