@@ -9,11 +9,13 @@ const dbPromise = openDB('auralith-database', 1, {
 export async function addGame(data) {
   const db = await dbPromise;
   await db.add('games', data);
+  window.dispatchEvent(new Event('games-updated'));
 }
 
 export async function deleteGame(id) {
   const db = await dbPromise;
   await db.delete('games', id);
+  window.dispatchEvent(new Event('games-updated'));
 }
 
 export async function getGame(id) {
@@ -23,13 +25,14 @@ export async function getGame(id) {
   return game;
 }
 
-export async function getAllGames() {
+export async function getAllGameIds() {
   const db = await dbPromise;
-  const allGames = await db.getAll('games');
-  return allGames;
+  const ids = await db.getAllKeys('games');
+  return ids;
 }
 
 export async function updateGame(data) {
   const db = await dbPromise;
   await db.put('games', data);
+  window.dispatchEvent(new Event('games-updated'));
 }

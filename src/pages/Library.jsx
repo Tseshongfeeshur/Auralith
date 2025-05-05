@@ -2,8 +2,15 @@ import { useRef, useEffect } from 'react';
 import { useAppTitle } from '../lib/TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
-import { getAllGames, addGame } from '../lib/db.js'
+import { getAllGameIds, getGame, addGame } from '../lib/db.js'
 import styles from './styles/Library.module.css';
+
+async function GameCards() {
+  return (
+    <div>
+    </div>
+  );
+}
 
 export default function Library() {
   // 加载语言
@@ -45,6 +52,7 @@ export default function Library() {
     if (newGameTitle && newGameId) {
       const newGameObj = {
         "id": newGameId,
+        "desc": t('library.1st-game-desc'),
         "page": {
           "title": newGameTitle,
           "html": {
@@ -61,7 +69,7 @@ export default function Library() {
             "y": 0
           },
           "content": {
-            "desc": t('1st-plot-desc'),
+            "desc": t('library.1st-plot-desc'),
             "text": "",
             "image": {
               "src": "",
@@ -127,8 +135,7 @@ export default function Library() {
       });
     }
   }
-          const test = await getAllGames();
-        console.log(test);
+  
   return (
     <div className={styles.container}>
       <s-search className={styles.search} placeholder={t('library.search-for-your-games')}>
@@ -141,6 +148,7 @@ export default function Library() {
           </s-icon>
         </s-icon-button>
       </s-search>
+      <GameCards />
       <s-fab className={styles.fab} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}
