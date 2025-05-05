@@ -127,7 +127,8 @@ export default function Library() {
       });
     }
   }
-  
+          const test = await getAllGames();
+        console.log(test);
   return (
     <div className={styles.container}>
       <s-search className={styles.search} placeholder={t('library.search-for-your-games')}>
