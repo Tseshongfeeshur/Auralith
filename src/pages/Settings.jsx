@@ -4,23 +4,6 @@ import { useTranslation } from 'react-i18next';
 import i18n from '../i18n/index';
 import styles from './styles/Settings.module.css'
 
-// 模式切换器
-function ModeSwitch() {
-  // 加载语言
-  const { t } = useTranslation();
-  
-  return (
-    <s-ripple className={styles.switchBox}>
-      <span>
-        {t('settings.professional-mode')}
-      </span>
-      <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
-        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') != 'false')
-      }}></s-switch>
-    </s-ripple>
-  );
-}
-
 // 语言选择器
 function LanguagePicker() {
   // 加载语言
@@ -52,6 +35,23 @@ function LanguagePicker() {
   );
 }
 
+// 模式切换器
+function ModeSwitch() {
+  // 加载语言
+  const { t } = useTranslation();
+  
+  return (
+    <s-ripple className={styles.switchBox}>
+      <span>
+        {t('settings.professional-mode')}
+      </span>
+      <s-switch checked={localStorage.getItem('pro-mode')} onClick={() => {
+        localStorage.setItem('pro-mode', localStorage.getItem('pro-mode') != 'false')
+      }}></s-switch>
+    </s-ripple>
+  );
+}
+
 export default function Editor() {
   // 加载语言
   const { t } = useTranslation();
@@ -64,9 +64,9 @@ export default function Editor() {
   
   return (
     <div className={styles.container}>
-      <ModeSwitch />
-      <s-divider className={styles.divider}></s-divider>
       <LanguagePicker />
+      <s-divider className={styles.divider}></s-divider>
+      <ModeSwitch />
     </div>
   );
 }
