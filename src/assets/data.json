@@ -1,0 +1,52 @@
+{
+  "page": {
+    "title": "title",
+    "html": {
+      "header": "title",
+      "footer": "Auralith"
+    },
+    "style": "",
+    "script": ""
+  },
+  "plots": [
+  {
+    "coordinates": {
+      "x": 0,
+      "y": 0
+    },
+    "content": {
+      "desc": "第一个情节",
+      "text": "",
+      "image": {
+        "src": "",
+        "alt": ""
+      },
+      "actions": [
+      {
+        "plotIndex": 0,
+        "text": ""
+      }]
+    },
+    "hooks": {
+      "html": {
+        "forText": {
+          "before": "",
+          "after": ""
+        },
+        "forImage": {
+          "before": "",
+          "after": ""
+        },
+        "forActions": {
+          "before": "",
+          "after": ""
+        }
+      },
+      "style": "",
+      "script": {
+        "afterEnter": "",
+        "beforeLeave": ""
+      }
+    }
+  }]
+}

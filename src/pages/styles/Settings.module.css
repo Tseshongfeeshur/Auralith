@@ -1,6 +1,6 @@
 .switchBox {
-  width: calc(100% - 2rem * 2);
-  margin: 1rem 2rem 1.3rem 2rem;
+  width: 100%;
+  margin: 1rem 0 1.3rem 0;
   height: 3rem;
   border-radius: 4px;
   display: flex;
@@ -22,6 +22,6 @@
 }
 
 .picker {
-  width: calc(100% - 2rem * 2);
-  margin: 1rem 2rem 1.3rem 2rem;
+  width: 100%;
+  margin: 1rem 0 1.3rem 0;
 }

@@ -18,6 +18,10 @@ body,
   height: 100%;
 }
 
+page {
+  padding: 5rem 2rem 4rem 2rem;
+}
+
 /* 链接 */
 a {
   text-decoration: none;
