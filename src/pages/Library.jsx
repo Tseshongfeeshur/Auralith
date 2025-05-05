@@ -5,7 +5,7 @@ import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
 import styles from './styles/Library.module.css';
 
-async function GameCards() {
+function GameCards() {
   return (
     <div>
     </div>
