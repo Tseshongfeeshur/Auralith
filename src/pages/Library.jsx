@@ -130,7 +130,7 @@ export default function Library() {
   
   return (
     <div className={styles.container}>
-      <s-search placeholder={t('library.search-for-your-games')} onInput={}>
+      <s-search placeholder={t('library.search-for-your-games')}>
         <s-icon name="search" slot="start"></s-icon>
         <s-icon-button slot="end">
           <s-icon>
