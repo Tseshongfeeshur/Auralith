@@ -63,7 +63,7 @@ export default function Editor() {
   }, []);
   
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       <ModeSwitch />
       <s-divider className={styles.divider}></s-divider>
       <LanguagePicker />
