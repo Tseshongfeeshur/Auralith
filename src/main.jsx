@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { TitleProvider } from './TitleContext';
+import { TitleProvider } from './lib/TitleContext';
 import 'sober';
-import i18n from './i18n';
+import i18n from './i18n/index';
 
 function setLang() {
     const lang = localStorage.getItem('lang');

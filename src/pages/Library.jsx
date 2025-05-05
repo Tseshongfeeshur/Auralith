@@ -1,5 +1,5 @@
 import { useRef, useEffect } from 'react';
-import { useAppTitle } from '../TitleContext';
+import { useAppTitle } from '../lib/TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
 import styles from './styles/Library.module.css';

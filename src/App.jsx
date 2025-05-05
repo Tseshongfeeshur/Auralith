@@ -1,7 +1,7 @@
 import { useRef, use } from 'react';
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useAppTitle } from './TitleContext.jsx';
+import { useAppTitle } from './lib/TitleContext.jsx';
 import { NavLink } from "react-router"
 import Library from './pages/Library';
 import Editor from './pages/Editor';
