@@ -20,7 +20,7 @@ function Card({ title, id, desc }) {
       </div>
       <div>
         <span>
-          {desp}
+          {desc}
         </span>
         <s-icon-button>
           <s-icon>
