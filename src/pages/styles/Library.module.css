@@ -8,6 +8,14 @@
 
 .cardTitle {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cardTitle span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .fab {
