@@ -20,12 +20,12 @@ function Card({ title, author, desc }) {
           {title}
         </span>
       </div>
-      <span slot="subhead">
+      <div slot="subhead">
         {author}
-      </span>
-      <span slot="text">
+      </div>
+      <div slot="text">
         {desc}
-      </span>
+      </div>
     </s-card>
   );
 }
