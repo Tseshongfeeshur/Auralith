@@ -9,7 +9,7 @@ import styles from './styles/Library.module.css';
 
 function Card({ title, author, desc }) {
   return (
-    <s-card type="outlined" clickable="true">
+    <s-card className={styles.card} type="outlined" clickable="true">
       <div className={styles.cardTitle} slot="headline">
         <s-icon>
           <svg viewBox="0 -960 960 960">
