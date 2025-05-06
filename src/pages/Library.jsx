@@ -50,8 +50,8 @@ function GameCards() {
         720: 2,
         480: 1
       }}
-      className="masonry-grid"
-      columnClassName="masonry-grid_column"
+      className={styles.masonryGrid}
+      columnClassName={styles.masonryGridColumn}
     >
       {games.map((game, index) => (
         <Card

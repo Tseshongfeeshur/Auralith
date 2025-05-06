@@ -6,6 +6,23 @@
   width: 100%;
 }
 
+.masonryGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: -16px;
+  width: auto;
+}
+
+.masonryGridColumn {
+  padding-left: 16px;
+  background-clip: padding-box;
+}
+
+.masonryGridColumn > * {
+  margin-bottom: 16px;
+}
+
 .cardTitle {
   display: flex;
   flex-direction: row;
