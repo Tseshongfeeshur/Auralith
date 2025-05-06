@@ -4,12 +4,11 @@ import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
 import Masonry from 'react-masonry-css';
-
 import styles from './styles/Library.module.css';
 
 function Card({ title, author, desc }) {
   return (
-    <s-card className={styles.card} type="outlined" clickable="true">
+    <s-card type="outlined" clickable="true">
       <div className={styles.cardTitle} slot="headline">
         <s-icon>
           <svg viewBox="0 -960 960 960">
