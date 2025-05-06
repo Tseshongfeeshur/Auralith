@@ -7,7 +7,7 @@ import styles from './styles/Library.module.css';
 
 function Card({ title, id, desc }) {
   return (
-    <s-card type="outlined" clickable="true">
+    <s-card type="filled" clickable="true">
       <div slot="headline">
         <s-icon>
           <svg viewBox="0 -960 960 960">
