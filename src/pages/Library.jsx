@@ -7,7 +7,7 @@ import styles from './styles/Library.module.css';
 
 function Card({ title, id, desc }) {
   return (
-    <s-card type="filled" clickable="true">
+    <s-card type="outlined" clickable="true">
       <div slot="headline">
         <s-icon>
           <svg viewBox="0 -960 960 960">
@@ -18,16 +18,16 @@ function Card({ title, id, desc }) {
           {title}
         </div>
       </div>
-        <div slot="text">
-          {desc}
-        </div>
-        <s-icon-button>
-          <s-icon>
-            <svg viewBox="0 -960 960 960">
-              <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
-            </svg>
-          </s-icon>
-        </s-icon-button>
+      <div slot="text">
+        {desc}
+      </div>
+      <s-icon-button slot="action">
+        <s-icon>
+          <svg viewBox="0 -960 960 960">
+            <path d="M480-344 240-584l56-56 184 184 184-184 56 56-240 240Z"></path>
+          </svg>
+        </s-icon>
+      </s-icon-button>
     </s-card>
   );
 }
