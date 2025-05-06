@@ -44,10 +44,10 @@ function GameCards() {
   return (
     <Masonry
       breakpointCols={{
-        default: 5,
-        1080: 4,
-        720: 3,
-        480: 2
+        default: 4,
+        1080: 3,
+        720: 2,
+        360: 1
       }}
       className={styles.masonryGrid}
       columnClassName={styles.masonryGridColumn}
