@@ -169,6 +169,7 @@ export default function Library() {
         </s-icon-button>
       </s-search>
       <Card title="测试" id="20250506-115406-54" desc="第一个故事。关于巫婆和恶狼。" />
+      <Card title="测试超级超级超级超级超级长的标题" id="loooooooooongid20250506-115406-54" desc="第一个故事。关于超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级长的描述文本。" />
       <s-fab className={styles.fab} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}
