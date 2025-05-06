@@ -1,6 +1,8 @@
 {
+  "title": "title",
   "id": "",
   "desc": "第一个游戏",
+  "author": "Auralith",
   "page": {
     "title": "title",
     "html": {

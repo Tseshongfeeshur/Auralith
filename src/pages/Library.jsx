@@ -3,9 +3,11 @@ import { useAppTitle } from '../lib/TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
+import Masonry from 'react-masonry-css';
+
 import styles from './styles/Library.module.css';
 
-function Card({ title, id, desc }) {
+function Card({ title, author, desc }) {
   return (
     <s-card type="outlined" clickable="true">
       <div className={styles.cardTitle} slot="headline">
@@ -18,10 +20,48 @@ function Card({ title, id, desc }) {
           {title}
         </span>
       </div>
-      <div slot="text">
+      <span slot="subhead">
+        {author}
+      </span>
+      <span slot="text">
         {desc}
-      </div>
+      </span>
     </s-card>
+  );
+}
+
+function GameCards() {
+  const [games, setGames] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const ids = await getAllGameIds();
+      const gamesData = await Promise.all(ids.map(id => getGame(id)));
+      setGames(gamesData);
+    }
+    fetchData();
+  }, []);
+
+  return (
+    <Masonry
+      breakpointCols={{
+        default: 4,
+        1080: 3,
+        720: 2,
+        480: 1
+      }}
+      className="masonry-grid"
+      columnClassName="masonry-grid_column"
+    >
+      {games.map((game, index) => (
+        <Card
+          key={game.id}
+          title={game.title}
+          author={game.author}
+          desc={game.desc}
+        />
+      ))}
+    </Masonry>
   );
 }
 
@@ -64,8 +104,10 @@ export default function Library() {
     const newGameId = addGameIdRef.current.value;
     if (newGameTitle && newGameId) {
       const newGameObj = {
+        "title": newGameTitle,
         "id": newGameId,
         "desc": t('library.1st-game-desc'),
+        "author": t('Auralith'),
         "page": {
           "title": newGameTitle,
           "html": {
@@ -161,9 +203,7 @@ export default function Library() {
           </s-icon>
         </s-icon-button>
       </s-search>
-      <Card title="测试" id="20250506-115406-54" desc="第一个故事。关于巫婆和恶狼。" />
-      <Card title="测试超级超级超级超级超级长的标题" id="loooooooooongid20250506-115406-54" desc="第一个故事。关于超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级超级长的描述文本。" />
-      <Card title="测" id="srt" desc="短。" />
+      <GameCards />
       <s-fab className={styles.fab} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}
