@@ -15,12 +15,13 @@
 }
 
 .cardTitle s-icon {
+  font-size: 1.1em;
+  margin-right: .3em;
   flex: 0 0 auto;
 }
 
 .cardTitle span {
   flex: 1;
-  line-height: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
