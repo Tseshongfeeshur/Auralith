@@ -194,12 +194,12 @@ export default function Library() {
         </s-icon-button>
       </s-search>
       <GameCards />
+      <s-fab className={styles.fabRefresh} onClick={showAddDialog}>
+        <s-icon name="refresh"></s-icon>
+      </s-fab>
       <s-fab className={styles.fabAdd} onClick={showAddDialog}>
         <s-icon name="add" slot="start"></s-icon>
         {t('library.add-game')}
-      </s-fab>
-      <s-fab className={styles.fabRefresh} onClick={showAddDialog}>
-        <s-icon name="refresh"></s-icon>
       </s-fab>
       <s-dialog ref={addDialogRef}>
         <div slot="headline">{t('library.add-game')}</div>
