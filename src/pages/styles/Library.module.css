@@ -71,12 +71,6 @@
   text-overflow: ellipsis;
 }
 
-.fabRefresh {
-  position: fixed;
-  bottom: 6rem;
-  right: 1rem;
-}
-
 .fabAdd {
   position: fixed;
   bottom: 2rem;
