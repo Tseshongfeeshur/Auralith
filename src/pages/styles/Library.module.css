@@ -51,7 +51,6 @@
 
 .cardTitle span {
   font-size: .9em;
-  height: 1em;
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -65,7 +64,9 @@
 }
 
 .cardDesc {
+  line-height: 1.2em;
   height: 3em;
+  padding-bottom: .2em;
   overflow: hidden;
   text-overflow: ellipsis;
 }
