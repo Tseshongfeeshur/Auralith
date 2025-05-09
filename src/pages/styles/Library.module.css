@@ -31,6 +31,10 @@
   }
 }
 
+.cardGrid s-card {
+  width: 100%;
+}
+
 .cardTitle {
   display: flex;
   flex-direction: row;
