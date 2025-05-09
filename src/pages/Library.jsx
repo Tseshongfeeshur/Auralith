@@ -8,7 +8,7 @@ import styles from './styles/Library.module.css';
 
 function Card({ title, author, desc }) {
   return (
-    <s-card type="filled" clickable="true">
+    <s-card  clickable="true">
       <div className={styles.cardTitle} slot="headline">
         <s-icon>
           <svg viewBox="0 -960 960 960">
