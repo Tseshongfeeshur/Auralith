@@ -33,6 +33,7 @@
 
 .cardGrid s-card {
   width: 100%;
+  max-width: none;
 }
 
 .cardTitle {
@@ -58,7 +59,6 @@
 }
 
 .cardAuthor {
-  height: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -68,7 +68,6 @@
   height: 3em;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .fab {
