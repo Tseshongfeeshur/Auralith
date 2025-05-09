@@ -1,5 +1,5 @@
 .container {
-  /* padding: 2rem 2rem 4rem 2rem; */
+  padding: 2rem 2rem 4rem 2rem;
 }
 
 .search {
@@ -7,23 +7,29 @@
   margin-bottom: 2em;
 }
 
-.masonryGrid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: -16px;
-  width: auto;
+.cardGrid {
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
-.masonryGridColumn {
-  padding-left: 16px;
-  background-clip: padding-box;
+@media (max-width: calc(1080px + 4rem)) {
+  .cardGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.masonryGridColumn > * {
-  width: 100%;
-  display: block;
-  margin-bottom: 16px;
+@media (max-width: calc(720px + 4rem)) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: calc(360px + 4rem)) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cardTitle {
@@ -41,7 +47,22 @@
 
 .cardTitle span {
   font-size: .9em;
+  height: 1em;
   flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardAuthor {
+  height: 1em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardDesc {
+  height: 3em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

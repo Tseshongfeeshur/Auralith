@@ -19,10 +19,10 @@ function Card({ title, author, desc }) {
           {title}
         </span>
       </div>
-      <div slot="subhead">
+      <div className={styles.cardAuthor} slot="subhead">
         {author}
       </div>
-      <div slot="text">
+      <div className={styles.cardDesc} slot="text">
         {desc}
       </div>
     </s-card>
@@ -42,16 +42,7 @@ function GameCards() {
   }, []);
 
   return (
-    <Masonry
-      breakpointCols={{
-        default: 4,
-        1080: 3,
-        720: 2,
-        360: 1
-      }}
-      className={styles.masonryGrid}
-      columnClassName={styles.masonryGridColumn}
-    >
+    <div className={styles.cardGrid}>
       {games.map((game, index) => (
         <Card
           key={game.id}
@@ -60,7 +51,7 @@ function GameCards() {
           desc={game.desc}
         />
       ))}
-    </Masonry>
+    </div>
   );
 }
 
