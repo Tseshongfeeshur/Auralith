@@ -63,10 +63,10 @@ export default function Editor() {
   }, []);
   
   return (
-    <div className={styles.container}>
+    <s-scroll-view className={styles.container}>
       <LanguagePicker />
       <s-divider className={styles.divider}></s-divider>
       <ModeSwitch />
-    </div>
+    </s-scroll-view>
   );
 }
