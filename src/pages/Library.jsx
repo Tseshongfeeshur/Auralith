@@ -182,7 +182,7 @@ export default function Library() {
   }
   
   return (
-    <div className={styles.container}>
+    <s-scroll-view className={styles.container}>
       <s-search className={styles.search} placeholder={t('library.search-for-your-games')}>
         <s-icon name="search" slot="start"></s-icon>
         <s-icon-button slot="end">
@@ -219,6 +219,6 @@ export default function Library() {
         <s-button slot="action" type="text">{t('library.add-dialog.cancel')}</s-button>
         <s-button onClick={addSubmit} slot="action" type="filled-tonal">{t('library.add-dialog.add-it')}</s-button>
       </s-dialog>
-    </div>
+    </s-scroll-view>
   );
 }
