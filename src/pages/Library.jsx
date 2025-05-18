@@ -21,7 +21,7 @@ function Card({ title, author, description }) {
       <div className={styles.cardAuthor} slot="subhead">
         {author}
       </div>
-      <div className={styles.cardDescripyion} slot="text">
+      <div className={styles.cardDescription} slot="text">
         {description}
       </div>
     </s-card>
