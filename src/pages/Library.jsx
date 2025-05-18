@@ -3,7 +3,6 @@ import { useAppTitle } from '../lib/TitleContext';
 import { useTranslation } from 'react-i18next';
 import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
-import Masonry from 'react-masonry-css';
 import styles from './styles/Library.module.css';
 
 function Card({ title, author, desc }) {
@@ -31,7 +30,7 @@ function Card({ title, author, desc }) {
 
 function GameCards() {
   const [games, setGames] = useState([]);
-
+  
   useEffect(() => {
     async function fetchData() {
       const ids = await getAllGameIds();
@@ -40,15 +39,15 @@ function GameCards() {
     }
     fetchData();
   }, []);
-
+  
   return (
     <div className={styles.cardGrid}>
       {games.map((game, index) => (
         <Card
-          key={game.id}
-          title={game.title}
-          author={game.author}
-          desc={game.desc}
+          key={game.metadata.id}
+          title={game.metadata.title}
+          author={game.metadata.author}
+          desc={game.metadata.description}
         />
       ))}
     </div>
@@ -94,60 +93,39 @@ export default function Library() {
     const newGameId = addGameIdRef.current.value;
     if (newGameTitle && newGameId) {
       const newGameObj = {
-        "title": newGameTitle,
-        "id": newGameId,
-        "desc": t('library.1st-game-desc'),
-        "author": t('Auralith'),
-        "page": {
+        "metadata": {
+          "id": newGameId,
           "title": newGameTitle,
-          "html": {
-            "header": newGameTitle,
-            "footer": t('Auralith')
-          },
-          "style": "",
-          "script": ""
+          "author": t('Auralith'),
+          "description": t('library.1st-game-desc')
+        },
+        "hook": {
+          "scripts": "",
+          "styles": ""
         },
         "plots": [
         {
-          "coordinates": {
-            "x": 0,
-            "y": 0
-          },
+          "coordinates": [],
+          "id": newGameId,
+          "description": t('library.1st-plot-desc'),
           "content": {
-            "desc": t('library.1st-plot-desc'),
-            "text": "",
-            "image": {
-              "src": "",
-              "alt": ""
-            },
-            "actions": [
+            "paragraph": "",
+            "image": "",
+            "routers": [
             {
-              "plotIndex": 0,
-              "text": ""
+              "text": "",
+              "targetId": ""
             }]
           },
-          "hooks": {
-            "html": {
-              "forText": {
-                "before": "",
-                "after": ""
-              },
-              "forImage": {
-                "before": "",
-                "after": ""
-              },
-              "forActions": {
-                "before": "",
-                "after": ""
-              }
+          "hook": {
+            "scripts": {
+              "onEnter": "",
+              "onExit": ""
             },
-            "style": "",
-            "script": {
-              "afterEnter": "",
-              "beforeLeave": ""
-            }
+            "styles": ""
           }
-        }]
+        }],
+        "schemaVersion": 2
       }
       try {
         await addGame(newGameObj);

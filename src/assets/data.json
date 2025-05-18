@@ -1,56 +1,35 @@
 {
-  "title": "title",
-  "id": "",
-  "desc": "第一个游戏",
-  "author": "Auralith",
-  "page": {
-    "title": "title",
-    "html": {
-      "header": "title",
-      "footer": "Auralith"
-    },
-    "style": "",
-    "script": ""
+  "metadata": {
+    "id": "",
+    "title": "",
+    "author": "",
+    "description": ""
+  },
+  "hook": {
+    "scripts": "",
+    "styles": ""
   },
   "plots": [
   {
-    "coordinates": {
-      "x": 0,
-      "y": 0
-    },
+    "coordinates": [],
+    "id": "",
+    "description": "",
     "content": {
-      "desc": "第一个情节",
-      "text": "",
-      "image": {
-        "src": "",
-        "alt": ""
-      },
-      "actions": [
+      "paragraph": "",
+      "image": "",
+      "routers": [
       {
-        "plotIndex": 0,
-        "text": ""
+        "text": "",
+        "targetId": ""
       }]
     },
-    "hooks": {
-      "html": {
-        "forText": {
-          "before": "",
-          "after": ""
-        },
-        "forImage": {
-          "before": "",
-          "after": ""
-        },
-        "forActions": {
-          "before": "",
-          "after": ""
-        }
+    "hook": {
+      "scripts": {
+        "onEnter": "",
+        "onExit": ""
       },
-      "style": "",
-      "script": {
-        "afterEnter": "",
-        "beforeLeave": ""
-      }
+      "styles": ""
     }
-  }]
+  }],
+  "schemaVersion": 2
 }
