@@ -31,29 +31,18 @@ function Card({ title, author, description }) {
 function GameCards() {
   const [games, setGames] = useState([]);
   
-  async function fetchData() {
-    const ids = await getAllGameIds();
-    const gamesData = await Promise.all(ids.map(id => getGame(id)));
-    setGames(gamesData);
-  }
-  
   useEffect(() => {
+    async function fetchData() {
+      const ids = await getAllGameIds();
+      const gamesData = await Promise.all(ids.map(id => getGame(id)));
+      setGames(gamesData);
+    }
     fetchData();
-    
-    const handleUpdate = () => {
-      fetchData();
-    };
-    
-    window.addEventListener('games-updated', handleUpdate);
-    
-    return () => {
-      window.removeEventListener('games-updated', handleUpdate);
-    };
   }, []);
   
   return (
     <div className={styles.cardGrid}>
-      {games.map((game) => (
+      {games.map((game, index) => (
         <Card
           key={game.metadata.id}
           title={game.metadata.title}
