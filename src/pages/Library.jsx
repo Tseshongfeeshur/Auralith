@@ -5,7 +5,7 @@ import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
 import styles from './styles/Library.module.css';
 
-function Card({ title, author, desc }) {
+function Card({ title, author, description }) {
   return (
     <s-card type="outlined" clickable="true">
       <div className={styles.cardTitle} slot="headline">
@@ -21,8 +21,8 @@ function Card({ title, author, desc }) {
       <div className={styles.cardAuthor} slot="subhead">
         {author}
       </div>
-      <div className={styles.cardDesc} slot="text">
-        {desc}
+      <div className={styles.cardDescripyion} slot="text">
+        {description}
       </div>
     </s-card>
   );
@@ -47,7 +47,7 @@ function GameCards() {
           key={game.metadata.id}
           title={game.metadata.title}
           author={game.metadata.author}
-          desc={game.metadata.description}
+          description={game.metadata.description}
         />
       ))}
     </div>
@@ -97,7 +97,7 @@ export default function Library() {
           "id": newGameId,
           "title": newGameTitle,
           "author": t('Auralith'),
-          "description": t('library.1st-game-desc')
+          "description": t('library.1st-game-description')
         },
         "hook": {
           "scripts": "",
@@ -107,7 +107,7 @@ export default function Library() {
         {
           "coordinates": [],
           "id": newGameId,
-          "description": t('library.1st-plot-desc'),
+          "description": t('library.1st-plot-description'),
           "content": {
             "paragraph": "",
             "image": "",
