@@ -2,7 +2,7 @@ import { openDB } from 'idb';
 
 const dbPromise = openDB('auralith-database', 1, {
   upgrade(db) {
-    db.createObjectStore('games', { keyPath: 'id' });
+    db.createObjectStore('games', { keyPath: 'metadata.id' });
   }
 });
 
