@@ -12,7 +12,6 @@ function LanguagePicker() {
   const languages = {
     en: 'English',
     zh: '中文',
-    zhClassical: '文言'
   };
   
   // 改变语言
