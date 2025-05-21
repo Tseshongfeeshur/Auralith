@@ -79,7 +79,7 @@ function DrawerMenu({ drawerRef }) {
 }
 
 export default function App() {
-
+  
   // 加载语言
   const { t } = useTranslation();
   
@@ -92,6 +92,9 @@ export default function App() {
   }
   
   // 获取标题
+  useEffect(() => {
+    setTitle(t('pages.library'));
+  }, [t, setTitle]);
   const { title } = useAppTitle();
   
   return (

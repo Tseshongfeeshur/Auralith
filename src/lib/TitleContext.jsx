@@ -6,9 +6,11 @@ const TitleContext = createContext();
 export function TitleProvider({ children }) {
   // 加载语言
   const { t } = useTranslation();
-  
   const [title, setTitle] = useState('');
-  document.title = `${title} | ${t('Auralith')}`;
+  
+  useEffect(() => {
+    document.title = `${title} | ${t('Auralith')}`;
+  }, [title, t]);
   
   return (
     <TitleContext.Provider value={{ title, setTitle }}>
