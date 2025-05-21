@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const TitleContext = createContext();
