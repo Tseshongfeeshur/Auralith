@@ -5,7 +5,7 @@ import { Snackbar } from 'sober';
 import { getAllGameIds, getGame, addGame } from '../lib/db.js'
 import styles from './styles/Library.module.css';
 
-function Card({ title, author, description }) {
+function GameCard({ title, author, description }) {
   return (
     <s-card type="outlined" clickable="true">
       <div className={styles.cardTitle} slot="headline">
@@ -43,7 +43,7 @@ function GameCards() {
   return (
     <div className={styles.cardGrid}>
       {games.map((game, index) => (
-        <Card
+        <GameCard
           key={game.metadata.id}
           title={game.metadata.title}
           author={game.metadata.author}
@@ -66,31 +66,26 @@ export default function Library() {
   
   // 获取元素
   const addDialogRef = useRef();
-  const addGameTitleRef = useRef();
-  const addGameIdRef = useRef();
+  const gameTitleInputRef = useRef();
+  const gameidInputRef = useRef();
   // 打开游戏创建对话框
   function showAddDialog() {
     // 生成随机 id（年月日-时分秒-两位随机数）
     function getId() {
       const now = new Date();
-      const year = now.getFullYear();
-      const month = String(now.getMonth() + 1).padStart(2, '0');
-      const day = String(now.getDate()).padStart(2, '0');
-      const hour = String(now.getHours()).padStart(2, '0');
-      const minute = String(now.getMinutes()).padStart(2, '0');
-      const second = String(now.getSeconds()).padStart(2, '0');
+      const timestamp = now.toISOString().replace(/[-:T.]/g, '').slice(0, 14);
       const random = String(Math.floor(Math.random() * 100)).padStart(2, '0');
-      return `${year}${month}${day}-${hour}${minute}${second}-${random}`;
+      return `${timestamp}-${random}`;
     }
     // 随机 id 填充至输入框
-    addGameIdRef.current.value = getId();
-    addGameTitleRef.current.value = '';
+    gameidInputRef.current.value = getId();
+    gameTitleInputRef.current.value = '';
     addDialogRef.current.showed = true;
   }
   // 创建游戏
   async function addSubmit() {
-    const newGameTitle = addGameTitleRef.current.value;
-    const newGameId = addGameIdRef.current.value;
+    const newGameTitle = gameTitleInputRef.current.value;
+    const newGameId = gameidInputRef.current.value;
     if (newGameTitle && newGameId) {
       const newGameObj = {
         "metadata": {
@@ -179,14 +174,14 @@ export default function Library() {
       <s-dialog ref={addDialogRef}>
         <div slot="headline">{t('library.add-game')}</div>
         <div slot="text">
-          <s-text-field ref={addGameTitleRef} className="text-input" label={t('library.add-dialog.game-title')}>
+          <s-text-field ref={gameTitleInputRef} className="text-input" label={t('library.add-dialog.game-title')}>
             <s-icon slot="start">
               <svg viewBox="0 -960 960 960">
                 <path d="M440-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM280-760v-80h80v80h-80Zm0 640v-80h80v80h-80ZM120-760v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm0 160v-80h80v80h-80Zm480 0v-80h80v-560h-80v-80h240v80h-80v560h80v80H600Z"></path>
               </svg>
             </s-icon>
           </s-text-field>
-          <s-text-field ref={addGameIdRef} className="text-input" label={t('library.add-dialog.game-id')}>
+          <s-text-field ref={gameidInputRef} className="text-input" label={t('library.add-dialog.game-id')}>
             <s-icon slot="start">
               <svg viewBox="0 -960 960 960">
                 <path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"></path>
