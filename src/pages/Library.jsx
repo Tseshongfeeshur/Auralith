@@ -73,9 +73,14 @@ export default function Library() {
     // 生成随机 id（年月日-时分秒-两位随机数）
     function getId() {
       const now = new Date();
-      const timestamp = now.toISOString().replace(/[-:T.]/g, '').slice(0, 14);
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
       const random = String(Math.floor(Math.random() * 100)).padStart(2, '0');
-      return `${timestamp}-${random}`;
+      return `${year}${month}${day}-${hour}${minute}${second}-${random}`;
     }
     // 随机 id 填充至输入框
     gameidInputRef.current.value = getId();
