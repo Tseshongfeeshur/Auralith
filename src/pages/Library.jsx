@@ -69,7 +69,7 @@ export default function Library() {
   const gameTitleInputRef = useRef();
   const gameidInputRef = useRef();
   // 打开游戏创建对话框
-  function showAddDialog() {
+  const showAddDialog = useCallback(() => {
     // 生成随机 id（年月日-时分秒-两位随机数）
     function getId() {
       const now = new Date();
@@ -86,9 +86,10 @@ export default function Library() {
     gameidInputRef.current.value = getId();
     gameTitleInputRef.current.value = '';
     addDialogRef.current.showed = true;
-  }
+  }, []);
+  
   // 创建游戏
-  async function addSubmit() {
+  const addSubmit = useCallback(async () => {
     const newGameTitle = gameTitleInputRef.current.value;
     const newGameId = gameidInputRef.current.value;
     if (newGameTitle && newGameId) {
@@ -157,7 +158,7 @@ export default function Library() {
         action: t('library.add-dialog.snackbar.ok')
       });
     }
-  }
+  }, [t]);
   
   return (
     <s-scroll-view className={styles.container}>
